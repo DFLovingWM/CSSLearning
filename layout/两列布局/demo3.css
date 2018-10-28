@@ -1,0 +1,20 @@
+.demo3 {
+  overflow: hidden;
+}
+
+.wrapper {
+  float: left; /* 因为块状元素在前，所以为了让两者在同一行，必须float(wrapper代替p被float) */
+  width: 100%; /* float具有包裹性，所以强制使其宽度为100% */
+
+  /* 知识点：对float元素使用负margin：正向的负margin会让自己覆盖前面元素；反向的负margin会让后面的元素覆盖上来 */
+  /* 本来因为100%的width，逼得img到了第2行，这一句让它来到了第1行最后 */
+  margin-right: -200px; /* 关键！ */
+}
+
+.wrapper .flexible {
+  margin-right: 200px; /* img覆盖了p的最右边，为了使p内容正常展示，需要给个margin */
+}
+
+.fixed {
+  float: left; /* 这里好像不写也没关系 */
+}
