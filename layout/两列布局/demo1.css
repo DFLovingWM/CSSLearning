@@ -3,9 +3,9 @@
 }
 
 .demo1 .flexible {
-  margin-left: 200px; /* 值为定宽元素的宽度，避免重叠(文字虽然围绕，但box还是会重叠) */
+  overflow: auto;
 }
 
 .demo1 {
-  overflow: auto; /* 创建BFC，包裹住更高的float子元素，避免塌陷 */
+  overflow: auto;
 }

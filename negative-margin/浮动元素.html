@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>负margin对浮动元素的作用</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    div {
+      outline: 1px solid black;
+    }
+
+    .wrapper {
+      float: right;
+      width: 100%;
+      margin-left: -200px;
+    }
+
+    .wrapper .right {
+      margin-left: 200px;
+    }
+
+    .fixed {
+      width: 200px;
+      height: 200px;
+      float: right;
+      /* margin-right: -200px; */
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper flexible">
+    <div class="right" style="background: blue;">Right</div>
+  </div>
+  <div class="left fixed" style="background: red;">Left</div>
+</body>
+</html>

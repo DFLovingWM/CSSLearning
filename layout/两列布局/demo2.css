@@ -5,7 +5,7 @@
 }
 
 .demo2 .flexible {
-  margin-right: 200px;
+  overflow: auto;
 }
 
 .demo2 {
