@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>使用负margin法实现两列布局：对同一HTML布局，实现两种场景</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .left-wrapper {
+      background: red;
+    }
+
+    .right-wrapper {
+      background: blue;
+    }
+  </style>
+
+  <!-- 左边定宽，右边自适应 -->
+  <link rel="stylesheet" type="text/css" href="./left-fixed-right-flexible.css" />
+
+  <!-- 左边自适应，右边定宽 -->
+  <!-- <link rel="stylesheet" type="text/css" href="./left-flexible-right-fixed.css" /> -->
+
+</head>
+<body>
+  <div class="container">
+
+    <!-- 左 -->
+    <div class="left-wrapper">
+      <div class="left-content">
+        <!-- 内容 -->
+      </div>
+    </div>
+
+    <!-- 右 -->
+    <div class="right-wrapper">
+      <div class="right-content">
+        <!-- 内容 -->
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // 填充内容
+    window.onload = function () {
+      const content = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').join('——').repeat(3)
+
+      const $leftContent = document.getElementsByClassName('left-content')[0]
+      $leftContent.innerHTML = content
+
+      const $rightContent = document.querySelector('.right-content')
+      $rightContent.innerHTML = content
+    }
+  </script>
+</body>
+</html>

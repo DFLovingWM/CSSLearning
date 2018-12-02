@@ -1,2 +1,1 @@
-# CSSLearning
-CSS重要的知识点
+# CSSLearning：总结CSS中重要的知识点

@@ -1,0 +1,21 @@
+/* 左边固定，右边自适应 */
+
+.container {
+  overflow: auto;
+}
+
+.left-wrapper {
+  float: left;
+  width: 250px;
+  margin-right: -250px;
+  position: relative;
+}
+
+.right-wrapper {
+  float: right;
+  width: 100%;
+}
+
+.right-content {
+  margin-left: 250px;
+}

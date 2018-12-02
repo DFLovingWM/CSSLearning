@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>限制行数</title>
+  <style>
+    .one-line {
+      white-space: nowrap;
+      overflow-x: hidden;
+      text-overflow: ellipsis;
+      background: red;
+    }
+
+    .two-line {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      -webkit-line-clamp: 2;
+      background: green;
+    }
+
+    .three-line {
+      position: relative;
+      line-height: 20px;
+      height: 40px; /* 20 * 2 = 40  */
+      background: blue;
+      overflow: hidden;
+      word-break: break-all;
+    }
+
+    .three-line:after {
+      content: '...';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      padding: 0 4px 0 20px;
+      background: linear-gradient(to right, transparent, blue 50%, blue);
+    }
+
+    
+  </style>
+
+  <style>
+.wrapper {
+  line-height: 20px;
+  height: 40px;
+  overflow-x: hidden; /* 不溢出时，可隐藏省略号 */
+  overflow-y: hidden; /* 溢出时，隐藏多余文本 */
+}
+
+.text {
+  /* 右浮动 */
+  float: right;
+  /* 因为float了，所以需要重设width，为100%流宽度 */
+  width: 100%;
+}
+
+.wrapper::after {
+  content: '...';
+  float: right;
+  width: 3em;
+}
+
+.wrapper::before {
+  content: '';
+  float: left;
+  /* 高度与限制高度一致，将after顶下去 */
+  height: 40px;
+  /* 宽度大于等于after宽度就可以了 */
+  width: 3em;
+}
+
+.wrapper::before {
+  margin-right: -3em; /* 意思是让text覆盖上来，这样text又恢复了100%宽度 */
+}
+
+.wrapper::after {
+  position: relative;
+  left: 100%; /* 这里100%相对于wrapper宽度，也即text宽度 */
+  top: -20px; /* 再往上提一行 */
+}
+  </style>
+</head>
+<body>
+  <div class="one-line">
+    HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.
+    HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.
+    HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.
+    HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.
+    HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.
+    HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.
+  </div>
+
+  <div class="two-line">
+    HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.
+    HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.
+    HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.
+    HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.
+    HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.
+    HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.
+  </div>
+
+  <div class="three-line">
+    HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.
+    HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.
+    HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.
+    HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.
+    HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.
+    HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.
+  </div>
+
+  <div class="wrapper">
+    <div class="text">
+      HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.
+      HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.HTML, CSS & JavaScript makes up frontend.
+    </div>
+  </div>
+</body>
+</html>

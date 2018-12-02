@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>尝试</title>
+  <style>
+    body {
+      margin: 0;
+    }
+  </style>
+  <style>
+  .wrapper {
+    line-height: 20px;
+    height: 40px;
+    overflow-x: hidden; /* 不溢出时，可隐藏远处的省略号(看图) */
+    overflow-y: hidden; /* 溢出时，隐藏多余文本 */
+  }
+
+  .wrapper::before {
+    content: '';
+    float: left;
+    /* 高度与限制高度一致，将after顶下去 */
+    height: 40px;
+    /* 随便一个大于0的宽度，比如10px */
+    width: 10px;
+  }
+
+  .text {
+    /* 右浮动，并重设宽度为100% */
+    float: right;
+    width: 100%;
+  }
+
+  .wrapper::after {
+    content: '...';
+    float: right;
+    width: 3em;
+  }
+
+  .text {
+    /* 等于上述的随便给的宽度 */
+    margin-left: -10px;
+  }
+
+  .wrapper::after {
+    margin-left: -3em;
+    padding-left: 1px;
+  }
+
+  .wrapper::after {
+  position: relative;
+  left: 100%; /* 往右移动 */
+  top: -20px; /* 往上移动到text的最后一行 */
+}
+
+.wrapper::after {
+  background: white;
+}
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="text">
+      Hello world I am the demo!Hello world I am the demo!Hello world I am the demo!Hello world I am the demo!Hello world I am the demo!
+      Hello world I am the demo!Hello world I am the demo!Hello world I am the demo!Hello world I am the demo!Hello world I am the demo!
+    </div>
+  </div>
+</body>
+</html>

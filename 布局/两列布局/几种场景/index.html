@@ -6,6 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>两列布局</title>
   <link href="./common.css" rel="stylesheet">
+  <style>
+    body > div {
+      margin: 50px 0;
+    }
+  </style>
   <link href="./demo1.css" rel="stylesheet">
   <link href="./demo2.css" rel="stylesheet">
   <link href="./demo3.css" rel="stylesheet">
@@ -13,20 +18,20 @@
 <body>
   <!-- 例子1：左边定宽，右边自适应 -->
   <div class="demo1">
-    <img class="fixed" src="../assets/1.png">
-    <span class="flexible">
+    <img class="fixed" src="../../assets/1.png">
+    <div class="flexible">
       Syntactically awesome stylesheet.Syntactically awesome stylesheet.Syntactically awesome stylesheet.
       Syntactically awesome stylesheet.Syntactically awesome stylesheet.Syntactically awesome stylesheet.
       Syntactically awesome stylesheet.Syntactically awesome stylesheet.Syntactically awesome stylesheet.
       Syntactically awesome stylesheet.Syntactically awesome stylesheet.Syntactically awesome stylesheet.
       Syntactically awesome stylesheet.Syntactically awesome stylesheet.Syntactically awesome stylesheet.
-    </span>
+    </div>
   </div>
 
-  <!-- 例子2：左边定宽，右边自适应 -->
+  <!-- 例子2：左边自适应，右边定宽 -->
   <!-- 缺点：HTML顺序与视觉顺序不同 -->
   <div class="demo2">
-    <img class="fixed" src="../assets/1.png">
+    <img class="fixed" src="../../assets/1.png">
     <p class="flexible">
       Syntactically awesome stylesheet.Syntactically awesome stylesheet.Syntactically awesome stylesheet.
       Syntactically awesome stylesheet.Syntactically awesome stylesheet.Syntactically awesome stylesheet.
@@ -36,7 +41,7 @@
     </p>
   </div>
 
-  <!-- 例子3：左边定宽，右边自适应 -->
+  <!-- 例子3：左边自适应，右边定宽 -->
   <!-- 优点：解决例子2的问题(表现为文档流中，块状元素在前) -->
   <!-- 缺点：HTML结构、CSS代码更复杂 -->
   <div class="demo3">
@@ -49,7 +54,7 @@
         Syntactically awesome stylesheet.Syntactically awesome stylesheet.Syntactically awesome stylesheet.
       </p>
     </div>
-    <img class="fixed" src="../assets/1.png">
+    <img class="fixed" src="../../assets/1.png">
   </div>
 
 </body>
