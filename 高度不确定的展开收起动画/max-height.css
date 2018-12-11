@@ -1,0 +1,10 @@
+.content {
+  max-height: 0px;
+  transition: max-height 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.content.collapse {
+  /* 给一个一定大于auto的值，但是又不能大太多 */
+  max-height: 250px;
+}

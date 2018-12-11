@@ -1,0 +1,24 @@
+.container {
+  border-left: 120px solid #2196f3;
+  border-right: 250px solid #f48fb1;
+}
+
+.left {
+  width: 120px;
+  float: left;
+  /* 向左偏移 */
+  margin-left: -120px;
+}
+
+.right {
+  width: 250px;
+  float: right;
+  /* 向右偏移 */
+  margin-right: -250px;
+}
+
+.center {
+  /* 触发BFC，使其不与float部分重叠 */
+  /* 但好像不需要也行，因为border将它们分开了 */
+  overflow: hidden;
+}

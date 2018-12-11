@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>高度不确定的展开收起动画</title>
+  <style>
+    :root {
+      font-size: 24px;
+    }
+
+    ul {
+      margin: 0;
+    }
+
+    .title {
+      background: cyan;
+      color: white;
+      padding: 12px;
+      border: 1px solid #ec407a;
+      cursor: pointer;
+    }
+
+    .content {
+      border: 1px solid #ec407a;
+    }
+  </style>
+
+  <!-- <link href="max-height.css" rel="stylesheet" /> -->
+  <link href="height.css" rel="stylesheet" />
+
+</head>
+<body>
+  <div class="title">列表1</div>
+  <ul class="content">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+  </ul>
+  <div class="title">列表2</div>
+  <ul class="content">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+  </ul>
+
+  <script>
+    // const $btn = document.querySelector('.title')
+    // const $ul = document.querySelector('.content')
+    // $btn.addEventListener('click', evt => {
+    //   $ul.classList.toggle('collapse')
+    // })
+  </script>
+
+  <script>
+    const $ul = document.querySelector('.content')
+    document.querySelector('.title').addEventListener('click', evt => {
+      if (!$ul.classList.contains('active')) {
+        $ul.style.height = $ul.scrollHeight + 'px'
+      } else {
+        $ul.style.height = 0
+      }
+      $ul.classList.toggle('active')
+    })
+  </script>
+</body>
+</html>

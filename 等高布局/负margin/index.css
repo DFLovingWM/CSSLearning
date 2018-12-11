@@ -1,0 +1,12 @@
+.container {
+  overflow: hidden;
+}
+
+.left,
+.right {
+  float: left;
+  width: 50%;
+  /* Clincher! */
+  padding-bottom: 9999px;
+  margin-bottom: -9999px;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ch5.3.4</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .container {
+      text-align: justify;
+      width: 800px;
+      background: #eeeeee;
+      font-size: 100px;
+      line-height: 0;
+    }
+
+    .image {
+      display: inline-block;
+      width: 200px;
+      height: 200px;
+    }
+    .image:nth-child(1n) {
+      background: red;
+    }
+    .image:nth-child(2n) {
+      background: green;
+    }
+    .image:nth-child(3n) {
+      background: blue;
+    }
+    .image:nth-child(4n) {
+      background: yellow;
+    }
+
+    .dummy {
+      display: inline-block;
+      width: 200px;
+      height: 0;
+      outline: 1px solid red;
+    }
+
+    i {
+      font-style: normal;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span class="image"></span>
+    <span class="image"></span>
+    <span class="image"></span>
+    <span class="image"></span>
+    <i class="dummy"></i>
+    <i class="dummy"></i>
+    <i class="dummy"></i>
+  </div>
+  <div class="next">123456</div>
+</body>
+</html>
