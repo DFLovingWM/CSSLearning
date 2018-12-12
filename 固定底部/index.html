@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>固定底部</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    header,
+    footer,
+    section {
+      color: white;
+      font-size: 30px;
+      text-align: center;
+    }
+
+    header {
+      height: 50px;
+      line-height: 50px;
+      background-color: #ffd54f;
+    }
+
+    footer {
+      height: 100px;
+      line-height: 100px;
+      background-color: #4e342e;
+    }
+
+    .container div {
+      height: 200px;
+      line-height: 200px;
+    }
+  </style>
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+
+    .wrapper {
+      min-height: 100%;
+      margin-bottom: -100px;
+    }
+    
+    .wrapper .dummy {
+      height: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <header>header</header>
+    <section class="container">
+      <!-- Contents here. -->
+    </section>
+    <div class="dummy"></div>
+  </div>
+  <footer>footer</footer>
+  
+  <script>
+    const BG_COLORS = ['#d32f2f', '#f57c00', '#ffeb3b', '#43a047', '#1e88e5', '#26a69a', '#5e35b1']
+    let i = 0
+    document.body.addEventListener('click', event => {
+      const $div = document.createElement('div')
+      $div.style.backgroundColor = BG_COLORS[i++ % (BG_COLORS.length)]
+      $div.textContent = i
+      document.querySelector('.container').appendChild($div)
+    })
+  </script>
+</body>
+</html>
