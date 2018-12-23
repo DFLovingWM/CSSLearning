@@ -36,15 +36,16 @@
     }
   </style>
   <style>
+    .list-wrapper {
+      overflow: auto;
+    }
+
     .list {
-      white-space: nowrap;
-      padding: 0 20px;
       overflow: auto;
     }
 
     .item {
-      display: inline-block;
-      margin: 0 10px;
+      float: left;
     }
   </style>
 </head>
@@ -60,5 +61,12 @@
     </ul>
   </div>
   <footer>Footer</footer>
+
+  <script>
+    const sumWidth = [...document.getElementsByClassName('item')].reduce((sum, b) => {
+      return sum + b.offsetWidth
+    }, 0)
+    document.querySelector('.list').style.width = `${sumWidth}px`
+  </script>
 </body>
 </html>

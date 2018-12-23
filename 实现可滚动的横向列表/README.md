@@ -56,7 +56,7 @@
 }
 
 .list {
-  overflow: hidden; /* BFC */
+  overflow: hidden; /* 这里指定一个overflow，不是为了ul可滚动，而是触发其BFC，使高度不塌陷 */
 }
 ```
 
@@ -71,7 +71,7 @@
 3. 最后因为 list 宽度超出了屏幕，所以需要在外层即 wrapper 层限制一下溢出就好了：
 ```css
 .list-wrapper {
-  overflow: auto; /* 使列表在水平方向可滚动 */
+  overflow: auto; /* 这里指定的overflow，才是使列表在水平方向可滚动(div可滚动) */
 }
 ```
 
