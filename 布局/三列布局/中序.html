@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>三列布局：中序</title>
+  <style>
+    body {
+      margin: 0;
+      color: white;
+      font-size: 24px;
+    }
+    .left-content {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+    .right-content {
+      width: 200px;
+      height: 200px;
+      background-color: yellowgreen;
+    }
+    .middle-content {
+      background-color: cyan;
+      height: 300px;
+    }
+  </style>
+  <style>
+    .left {
+      float: left;
+      margin-right: -100px;
+    }
+    .middle {
+      float: left;
+      width: 100%;
+      /* margin-right: -200px; */
+    }
+    .right {
+      float: left;
+      margin-left: -200px;
+    }
+    .middle-content {
+      margin: 0 210px 0 110px;
+    }
+    .container {
+      overflow: hidden;
+      background-color: lightgray;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <div class="left-content">Left</div>
+    </div>
+    <div class="middle">
+        <div class="middle-content">middle</div>
+    </div>
+    <div class="right">
+        <div class="right-content">right</div>
+    </div>
+  </div>
+</body>
+</html>

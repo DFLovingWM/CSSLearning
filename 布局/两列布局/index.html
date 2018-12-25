@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>两列布局</title>
+  <style>
+    :root {
+      color: white;
+      font-size: 24px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    .container {
+      outline: 1px solid gray;
+      margin: 8px;
+      overflow: hidden;
+    }
+
+    .fixed {
+      width: 200px;
+      height: 150px;
+    }
+  </style>
+
+  <style>
+    .fixed {
+      float: right;
+    }
+
+    .flexible {
+      float: left;
+      width: 100%;
+      margin-left: -200px;
+    }
+
+    .flexible-content {
+      background-color: #2196f3;
+      margin-right: 210px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="flexible">
+      <div class="flexible-content">自适应</div>
+    </div>
+    <div class="fixed" style="background-color: #e91e63;">固定</div>
+  </div>
+</body>
+</html>

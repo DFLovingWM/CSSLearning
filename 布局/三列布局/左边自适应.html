@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>左边自适应</title>
+
+  <!-- 基础样式 -->
+  <style>
+    body {
+      margin: 0;
+      color: white;
+      font-size: 24px;
+    }
+    header, footer {
+      height: 50px;
+      background-color: yellow;
+    }
+    .container {
+      background-color: lightgray;
+    }
+    .middle-content {
+      width: 100px;
+      height: 200px;
+      background-color: red;
+    }
+    .right-content {
+      width: 120px;
+      height: 150px;
+      background-color: yellowgreen;
+    }
+    .left-content {
+      height: 400px;
+      background-color: cyan;
+    }
+  </style>
+
+  <!-- 作用样式 -->
+  <style>
+    .container {
+      overflow: hidden;
+    }
+    .left {
+      float: left;
+      width: 100%;
+      margin-right: -220px;
+    }
+    .left-content {
+      margin-right: 220px;
+    }
+    .middle, .right {
+      float: left;
+    }
+  </style>
+</head>
+<body>
+  <header>Header</header>
+  <section class="container">
+    <section class="left">
+      <div class="left-content">左边自适应</div>
+    </section>
+    <section class="middle">
+      <div class="middle-content">中间定宽</div>
+    </section>
+    <section class="right">
+      <div class="right-content">右边定宽</div>
+    </section>
+  </section>
+  <footer>Footer</footer>
+</body>
+</html>
