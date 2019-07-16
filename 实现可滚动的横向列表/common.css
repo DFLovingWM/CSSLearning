@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+header,
+footer {
+  height: 50px;
+  line-height: 50px;
+  background-color: cyan;
+  color: white;
+  text-align: center;
+  font-size: 36px;
+}
+
+li {
+  width: 150px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  background-color: palevioletred;
+  color: white;
+  font-size: 28px;
+}
+
+li:nth-child(1n) { background-color: red; }
+li:nth-child(2n) { background-color: orange; }
+li:nth-child(3n) { background-color: yellow; }
+li:nth-child(4n) { background-color: green; }
+li:nth-child(5n) { background-color: blue; }
+li:nth-child(6n) { background-color: cyan; }
+li:nth-child(7n) { background-color: purple; }

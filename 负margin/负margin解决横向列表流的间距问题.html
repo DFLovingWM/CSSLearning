@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>负margin实现item流</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 320px;
+      margin: 0 auto;
+      background-color: gray;
+    }
+    .list {
+      list-style: none;
+      background-color: #cccccc;
+      overflow: hidden;
+      margin-right: -10px;
+    }
+    .list li {
+      float: left;
+      margin: 0 10px 10px 0;
+      width: 100px;
+      height: 100px;
+      color: white;
+      font-size: 36px;
+      line-height: 100px;
+      text-align: center;
+    }
+    .blue { background-color: blue; }
+    .red { background-color: red; }
+    .green { background-color: green; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <ul class="list">
+      <li class="red">1</li>
+      <li class="green">2</li>
+      <li class="blue">3</li>
+      <li class="red">4</li>
+      <li class="green">5</li>
+    </ul>
+  </div>
+</body>
+</html>

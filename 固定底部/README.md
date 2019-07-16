@@ -45,56 +45,31 @@
 
 基本思路是：使 footer 外的部分占满屏幕，然后使用“负margin”把 footer 顶上去。CSS书写步骤：
 
-1. 同【calc算高度】中的第1步，增加 wrapper 层。这里略过。
+1. 增加 wrapper 层。
 
 2. 给 wrapper 一个100%的高度（注意：height设置百分比默认是无效的。所以为了使百分比高度生效，记得从 html、body 开始一层层设置高度）：
-```css
-html,
-body {
-  height: 100%; /* 个人疑问：为什么设置 min-height 为 100% 无效？ */
-}
 
+```css
 .wrapper {
-  min-height: 100%; /* 注意，这里不能是 height，否则内容溢出时会出现非期望结果 */
+  min-height: 100vh;
 }
 ```
 
-3. 这时候 footer 被顶到一页之外，所以需要将它拉上来，这里有两种思路，本质上一样的：
+3. 这时候 footer 被顶到一页之外，所以需要将它拉上来，并且需要保证它不遮挡 wrapper 的内容：
+
 ```css
 .wrapper {
   /* 意思是让 footer 覆盖上来 */
   margin-bottom: -100px;
-}
 
-/* 或 */
-footer {
-  /* 意思是主动往 wrapper 方向覆盖 */
-  margin-top: -100px;
-}
-```
-
-上面两个数值与 footer 等高。
-
-4. 此时 footer 位于viewport底部了，但会遮挡住 main 的部分内容。于是可能这里又有两种差不多的思路可以解决(看到这里你应该联想到双飞翼布局)：
-
-- wrapper 设置 padding-bottom(与 footer 等高)，将 main 往上顶：
-```css
-.wrapper {
+  /* 防止遮挡 */
   padding-bottom: 100px;
+  box-sizing: border-box;
 }
 ```
 
-- main 设置 margin-bottom，将其 content box 往上减小：
-```css
-.main {
-  margin-bottom: 100px;
-}
-```
+其实还有一种不使用 padding、margin 的方法，就是增加 dummy 空结点，用来占据被遮挡的部分的高度：
 
-实际上，这两种思路都只能解决“超出一屏”的情况；而在“不足一屏”时，因为两个方法都会使 wrapper 的 padding box 的高度增加了，所以一开始又会将 footer 给重新顶下去了。  
-没有办法吗？不，还是有的，既然不能用 padding、margin，那我可以增加个空结点，用来占据被遮挡的部分的高度：
-
-5. HTML布局中增加dummy结点，总体布局变为：
 ```html
 <body>
   <div class="wrapper">
@@ -108,11 +83,10 @@ footer {
   <footer>footer</footer>
 </body>
 ```
-```scss
-.wrapper {
-  .dummy {
-    height: 100px; /* 与 footer 等高 */
-  }
+
+```css
+.dummy {
+  height: 100px; /* 与 footer 等高 */
 }
 ```
 

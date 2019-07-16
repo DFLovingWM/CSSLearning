@@ -45,7 +45,7 @@
 
 首先，上面的“三句话”生效的前提是：name 是定宽、且宽度小于文本总长。在这个布局中，flex 容器(product-item)是流体、所以是满宽的，然后左右两个 flex-item 的情况：左边的 thumb 是定宽，右边的 detail 占据剩余宽度，按道理这个 detail 也算是定宽的了。
 
-但是，在浏览器的“开发者工具”中审查元素时发现，detail 的并不是定宽的！然后进一步发现：当子元素宽度较小时，它的确是占满容器中剩余的宽度；但当子元素超出了它的宽度时，它的宽度就为子元素的最长宽度了。
+但是，在浏览器的“开发者工具”中审查元素时发现，detail 的并不是定宽的！然后进一步发现：当子元素宽度较小时，它的确是占满容器中剩余的宽度；但当子元素超出了它的宽度时，它的宽度就为子元素的最长宽度了。即 flex-grow: 1 只表示“占满剩余宽度”，但是当实际内容超过界限时，flex-grow 并不会让它缩小到“刚好放下容器”。两者的意义是不同的。
 
 所以有了本博客的疑问：当一个 flex-item 元素的子元素宽度超出时，为什么它的宽度不再被 flex container 限制、而随着子元素而增长，从而导致了一系列的问题？这个是BUG吗？
 
@@ -66,7 +66,7 @@ flex-basis 的取值有以下几种：
 2. 没有指定 flex-basis 即 flex-basis 为 auto 时，取 width/height 的值。
 3. 没有指定 width/height 即 width/height 为 auto 时，由其内容/子元素决定，相当于使 flex-basis 取 “content”。
 
-一句话概括：
+一句话概括属性的优先级：
 
 > flex-basis(受限于min-width与max-width) > width/height > 内容("content")
 
@@ -74,9 +74,9 @@ flex-basis 的取值有以下几种：
 
 ## 4. 解决
 
-如果理解了，解决方案也差不多能想到了——<u>关键是要让 flex-item 有相对固定的宽度、并且不取决于内部，这样size规则就反过来了：内部是div元素，所以占满 flex-item 的宽度，最终使得那个 div 元素内容对“三句话”生效</u>。
+如果理解了，解决方案也差不多能想到了——<u>关键是要让 flex-item 有“相对固定”的宽度、并且不取决于内部，这样size规则就反过来了：内部是div元素，所以占满 flex-item 的宽度，最终使得那个 div 元素内容对“三句话”生效</u>。
 
-- 方法1：设置 flex-basis 为 0，然后利用 flex-grow: 1 来撑大到占据容器内所有剩余宽度：
+- 方法1：设置 flex-basis 为 0，然后利用 flex-grow: 1 来撑大到占据容器内所有剩余宽度。（对应第1个优先级）
 
 ```css
 .detail {
@@ -97,7 +97,7 @@ flex-basis 的取值有以下几种：
 
 这里涉及到太多约定的术语。根据我的理解，对于 flex-item 来说，min-width: auto 对应于刚好包裹子元素内容的宽度。所以上面的 flex-basis 受到 min-width 的限制，至少也是子元素的宽度，所以上面需要重置 min-width 为 0 。
 
-- 方法2：思路差不多，设置 width 为 0 也可以
+- 方法2：思路差不多，设置 width 为 0 也可以。（对应第2个优先级）
 
 ```css
 .detail {
@@ -122,6 +122,8 @@ flex-basis 的取值有以下几种：
 类似地，还有一些比如[flex-item 子元素的 word-break 失效](https://github.com/philipwalton/flexbugs/issues/39#issuecomment-111578174)的问题，也是类似的原因、以及解决方案。
 
 ## 6. 参考
+
+- [Why don't flex items shrink past content size?](https://stackoverflow.com/questions/36247140/why-dont-flex-items-shrink-past-content-size)
 - [flex布局中，保持内容不超出容器的解决办法](https://blog.csdn.net/zgh0711/article/details/78270555)（这篇博客提出了解决方案、没有分析原因，但启发了我，感谢作者）
 - [CSS规范：flex-basis](https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#propdef-flex-basis)
 - [Firefox doesn't apply flex-basis if children have larger image](https://github.com/philipwalton/flexbugs/issues/41)

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>负margin实现多列</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      padding: 10px;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    li {
+      outline: 1px dotted gray;
+      width: 6em; /* 给个容错宽度 */
+      line-height: 1.5; /* 高度 */
+    }
+
+    .top {
+      margin-top: -3em;
+    }
+
+    .col2 {
+      margin-left: 6em;
+    }
+
+    .col3 {
+      margin-left: 12em;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li class="col1">首页</li>
+    <li class="col1">归档</li>
+    <li class="col2 top">分类</li>
+    <li class="col2">联系方式</li>
+    <li class="col3 top">关于我们</li>
+  </ul>
+</body>
+</html>
