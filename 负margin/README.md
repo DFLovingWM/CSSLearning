@@ -1,13 +1,14 @@
 # 负margin的特性
 
-## 1 流体
+## 对于流体
 
-这里“流体“是指：不指定width的块级元素。默认情况下它会填充父容器的可用宽度，即它的：
+对流体的一般理解是：非定宽块级元素。流体在默认情况下会填充父容器的`content box`，即有等式：
+
 > content-box宽度 = 父元素content-box宽度 - ( border宽度 + padding宽度 + margin宽度 )
 
-所以对流体应用(水平方向的)负margin时，其content width就会相应地增加。
+所以对流体使用负数的`margin-*`时，其`content-box`会增加。
 
-举个例子：
+通过一个例子来理解：
 
 ```html
 <div class="container" style="width: 100px;">
@@ -24,18 +25,19 @@
 
 而对于定宽元素(非流体)，margin只能移动其位置，而不能改变其宽度。
 
-## 2 非流体或float元素
+## 对于非流体、浮动元素
 
-可以参考该图：
+网上流传一个图：
 
 ![负margin对static元素的作用](https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/cbe79f7b-b5e0-4891-9322-aea13e2fe54e/margin-motion.gif)
 
-可以总结为：
+转达一下结论：
 
-- 负的margin-top、margin-left，会让本元素往那个方向覆盖
-- 负的margin-bottom、margin-right，会被后面兄弟结点覆盖
+- 负的`margin-top/left`，会让本元素往那个方向覆盖
+- 负的`margin-bottom/right`，会被其后的兄弟元素覆盖
 
-然而这个结论是错的，它基于一个前提：float为left。但是下面的结论在float为left/right都适用：
+然而这个结论不完全准确，因为它基于一个前提：float为left。以下结论才具有普适性：
+
 > 负margin方向与float方向：相同时会主动覆盖，不同时会被后面兄弟结点覆盖。
 
 ## 3. 参考

@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>wrapper法：左边自适应，右边定宽</title>
+    <title>wrapper法：左边定宽，右边自适应</title>
     <style>
     * {
         margin: 0;
     }
 
-    .left {
+    .right {
         background-color: bisque;
     }
 
@@ -21,40 +21,35 @@
     }
     </style>
     <style>
+    .left {
+        float: left;
+        width: 200px;
+        margin-right: -200px;
+        position: relative;
+    }
+
     .wrapper {
         float: left;
         width: 100%;
     }
 
-    .left {
-        padding-right: 200px;
-    }
-
     .right {
-        /* float: left; */
-        display: inline-block;
-        margin-left: -200px;
-    }
-
-    .container {
-        overflow: auto;
+        margin-left: 210px;
     }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- 左 -->
+        <div class="left">
+            <div class="sidebar">日历</div>
+        </div>
         <div class="wrapper">
-            <div class="left">
+            <div class="right">
                 <div class="content">
                     <div>标题</div>
                     <div>内容内容内容内容内容内容内容内容内容内容内容若放假了潍坊科技论文疯狂微积分快来为房价未来将两份文件</div>
                 </div>
             </div>
-        </div>
-        <!-- 右 -->
-        <div class="right">
-            <div class="sidebar">日历</div>
         </div>
     </div>
 </body>

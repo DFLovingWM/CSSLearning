@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>inline-block实现横向列表</title>
+    <style>
+    * {
+        margin: 0;
+    }
+
+    .list {
+        background-color: gray;
+    }
+
+    .list-item {
+        background-color: red;
+        margin: 0 10px;
+    }
+    </style>
+    <style>
+    .list {
+        /* 关键 */
+        display: inline-flex;
+    }
+
+    .scroll {
+        overflow-x: auto;
+    }
+    </style>
+    <style>
+    .scroll {
+        padding-bottom: 100px;
+        margin-bottom: -100px;
+    }
+
+    .no-scrollbar {
+        overflow-y: hidden;
+    }
+    </style>
+</head>
+<body>
+    <!-- 取消滚动条样式 -->
+    <div class="no-scrollbar">
+      <!-- 滚动父元素 -->
+      <div class="scroll">
+        <!-- flex父容器，长度包含所有子元素 -->
+        <div class="list">
+            <div class="list-item">1</div>
+            <div class="list-item">22222</div>
+            <div class="list-item">333333333333333333333333333</div>
+            <div class="list-item">44444444444444</div>
+            <div class="list-item">55</div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

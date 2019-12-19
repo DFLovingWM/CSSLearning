@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>inline-block实现横向列表</title>
+    <style>
+    * {
+        margin: 0;
+    }
+
+    .list {
+        background-color: gray;
+    }
+
+    .list-item {
+        background-color: red;
+        margin: 0 10px;
+    }
+    </style>
+    <style>
+    .list {
+        white-space: nowrap;
+        /* font-size: 0; */
+        overflow-x: auto;
+    }
+
+    .list-item {
+        display: inline-block;
+    }
+    </style>
+    <style>
+    .list {
+        padding-bottom: 100px;
+        margin-bottom: -100px;
+    }
+
+    .wrapper {
+        overflow-y: hidden;
+    }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="list">
+            <div class="list-item">1</div>
+            <div class="list-item">22222</div>
+            <div class="list-item">333333333333333333333333333</div>
+            <div class="list-item">44444444444444</div>
+            <div class="list-item">55</div>
+        </div>
+    </div>
+</body>
+</html>

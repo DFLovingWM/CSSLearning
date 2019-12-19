@@ -1,34 +1,26 @@
-# 实现(可滚动的)横向列表
+# 实现可滚动的横向列表
 
-写一个横向列表，无非要依次考虑以下几点：
+横向列表涉及到的技术点：
 
 1. 创建横向排列的items
 2. 隐藏滚动条
 3. （可选）适当添加tab-line等元素及其动效
 
-以下讨论基于以下布局代码：
-```html
-<div class="list-wrapper">
-  <ul class="list">
-    <li class="item">1</li>
-    <li class="item">2</li>
-    <li class="item">3</li>
-    <li class="item">4</li>
-    <li class="item">5</li>
-  </ul>
-</div>
-```
-基本的CSS就不写了，可以自行发挥，方便理解即可。
-
-下面来分解书写步骤。
-
-
-
 ## 1. 创建横向排列的items的N种方式
 
 ### 1.1 inline-block
 
-将每个 item 设置`display: inline-block`，这样就能横向排列。但是如果一行放不下，还是会换行了，这里我们对 list 设置`white-space`：
+布局：
+
+```html
+<ul class="list">
+  <li class="item">1</li>
+  <li class="item">2</li>
+</ul>
+```
+
+将item设置成“内联”就能横向排列。然而默认情况下，超出一行宽度会换行，所以需要再加上`white-space: nowrap`：
+
 ```css
 .item {
   display: inline-block; /* 水平排列 */
@@ -71,6 +63,7 @@
 ```
 
 3. 因为 list 宽度超出了屏幕，所以需要在外层即 list-wrapper 层限制一下溢出就好了：
+
 ```css
 .list-wrapper {
   overflow: auto; /* 这里指定的overflow，才是使列表在水平方向可滚动(div可滚动) */
@@ -91,11 +84,13 @@ document.querySelector('.list').style.width = `${sumWidth}px`
 
 ### 1.3 flex
 
-1. 因为flex容器的宽度天然包裹住所有flex-item元素，并且`flex-wrap`默认为`nowrap`，所以设置`flex-direction: row`就能够创建一个横向列表。这时list很长，需要在list-wrapper这里设置横向滚动。
+1. ...
+
 ```css
 .list {
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
+  overflow-x: auto; /* 设置x方向滚动 */
 }
 
 .list-wrapper {
@@ -151,7 +146,7 @@ list::-webkit-scrollbar {
 
 #### PC端
 
-PC端的滚动条独自占用17px（有误差）高，列表整体高度便增加了。于是有以下几种思路：
+移动端的滚动条位于`padding box`的底(外)部，独自占用17px高，所以列表整体高度会增加。于是有以下几种思路：
 
 - 外层定高
 
@@ -175,6 +170,8 @@ PC端的滚动条独自占用17px（有误差）高，列表整体高度便增�
 ```
 
 #### 移动端
+
+移动端的滚动条位于`padding box`的底(内)部。
 
 移动端，因为滚动条悬浮于列表内部下方位置，所以整体高度没有增加。这里的主要思路是：利用`padding-bottom`将滚动条移出可视区域之外。然后剩余的步骤其实与PC端无异。
 

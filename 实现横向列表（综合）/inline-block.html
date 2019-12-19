@@ -4,9 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>inline-block法实现横向列表</title>
+  <title>实现横向列表（inline-block）</title>
   <link href="./common.css" rel="stylesheet" type="text/css" />
-  <link href="./inline-block.css" rel="stylesheet" type="text/css" />
+  <style>
+    ul {
+      white-space: nowrap;
+      overflow-x: auto;
+      font-size: 0;
+
+      /* padding-bottom: 20px; */
+      border-bottom: 20px solid transparent;
+      margin-bottom: -20px;
+    }
+
+    li {
+      display: inline-block;
+    }
+
+    .list-wrapper {
+      overflow-y: hidden;
+      /* height: 100px; */
+    }
+  </style>
 </head>
 <body>
   <div class="page">

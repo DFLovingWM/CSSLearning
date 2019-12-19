@@ -1,0 +1,11 @@
+.outer {
+    position: relative;
+}
+
+/* 不需要知道任何元素的宽高 */
+.inner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}

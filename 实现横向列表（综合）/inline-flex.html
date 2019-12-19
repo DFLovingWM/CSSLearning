@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>实现横向列表（inline-flex）</title>
+  <link href="./common.css" rel="stylesheet" type="text/css" />
+  <style>
+    .list-wrapper {
+      overflow-x: auto;
+    }
+
+    ul {
+      display: inline-flex;
+      flex-flow: row nowrap;
+    }
+
+    li {
+      flex-shrink: 0;
+      margin: 0 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>Header</header>
+    <div class="list-wrapper">
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+      </ul>
+    </div>
+    <footer>Footer</footer>
+  </div>
+</body>
+</html>
