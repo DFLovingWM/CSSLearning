@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>圣杯</title>
+    <style>
+    * {
+        margin: 0;
+    }
+
+    .left {
+        background-color: red;
+        width: 100px;
+        height: 100px;
+    }
+
+    .middle {
+        background-color: green;
+    }
+
+    .right {
+        background-color: blue;
+        width: 100px;
+        height: 100px;
+    }
+    </style>
+    <style>
+    .middle {
+        float: left;
+        width: 100%;
+    }
+
+    .left {
+        float: left;
+        margin-left: -100%;
+    }
+
+    .right {
+        float: left;
+        margin-left: -100px;
+    }
+
+    .container {
+        overflow: hidden;
+    }
+
+    .container {
+        padding: 0 100px;
+    }
+
+    .left {
+        position: relative;
+        left: -100px;
+    }
+
+    .right {
+        position: relative;
+        right: -100px;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- <div class="wrapper"> -->
+            <div class="middle">
+                middle，哈哈哈，飞进我房间问了飞机就饿。middle，哈哈哈，飞进我房间问了飞机就饿。middle，哈哈哈，飞进我房间问了飞机就饿。middle，哈哈哈，飞进我房间问了飞机就饿。
+            </div>
+        <!-- </div> -->
+        <div class="left">left</div>
+        <div class="right">right</div>
+    </div>
+</body>
+</html>
